@@ -5,8 +5,10 @@ module Thumbnailer
     def initialize(path, options = {})
       super(options)
       @path    = path
-      @file    = @options[:file] || ::File.basename(@path)
-      @dir     = @options[:dir]  || ::File.dirname(@path)
+      @file    = @options[:file]
+      @file    = ::File.basename(@path) if @file.nil? && !@path.nil?
+      @dir     = @options[:dir]
+      @dir     = ::File.dirname(@path) if @dir.nil? && !@path.nil?
       @prefix  = @options[:prefix] if @options[:prefix]
       @object  = extract_image(@path) if !@options[:object]
     end

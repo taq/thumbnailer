@@ -19,8 +19,8 @@ describe ::Thumbnailer::File do
     end
 
     it 'must have the correct thumb size' do
-      expect(@file.width).must_equal 51
-      expect(@file.height).must_equal 51
+      expect(@file.width).must_equal 257
+      expect(@file.height).must_equal 256
     end
 
     it 'must have a custom ratio size' do
@@ -41,8 +41,8 @@ describe ::Thumbnailer::File do
       @file.create
       expect(File.exist?(@file.output))
       image = MiniMagick::Image.open(@file.output)
-      expect(image[:width]).must_equal 51
-      expect(image[:height]).must_equal 51
+      expect(image[:width]).must_equal 257
+      expect(image[:height]).must_equal 256
     end
 
     it 'must create with custom prefix' do

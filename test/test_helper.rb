@@ -9,6 +9,9 @@ def clear_thumbs
   Dir.glob("#{Dir.pwd}/test/images/*thumb*.png") do |thumb|
     File.delete(thumb)
   end
+  Dir.glob("#{Dir.pwd}/test/pdfs/*thumb*.png") do |thumb|
+    File.delete(thumb)
+  end
 end
 
 module MiniTest

@@ -31,10 +31,15 @@ thumb.create # creates thumb_ruby-logo.png with 1/10 of the original size
 
 ```
 thumb = Thumbnailer::Files.new('*.png')
-thumb.create # creates thumb_*.png files
+thumb.create # creates thumb_<file>.png files
 ```
 
 ## Creating from a PDF file
+
+```
+thumb = Thumbnailer::PDF.new('test.pdf')
+thumb.create # creates thumb_<file>_<page>.png files for all pages
+```
 
 #### Options
 
@@ -52,6 +57,12 @@ thumb.create # creates thumb_ruby-logo.png on /tmp
 
 thumb = Thumbnailer::File.new('ruby-logo.png', width: 35, height: 35)
 thumb.create # creates thumb_ruby-logo.png with 35 x 35 size
+
+thumb = Thumbnailer::PDF.new('test.pdf', page: 2)
+thumb.create # creates thumb_<file>_2.png files for page 2
+
+thumb = Thumbnailer::PDF.new('test.pdf', pages: [1, 3])
+thumb.create # creates thumb_<file>_<page>.png files for pages 1 and 3
 ```
 
 ## Development
