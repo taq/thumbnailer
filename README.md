@@ -22,21 +22,21 @@ Or install it yourself as:
 
 ### Creating from a file
 
-```
+```ruby
 thumb = Thumbnailer::File.new('ruby-logo.png')
 thumb.create # creates thumb_ruby-logo.png with 1/10 of the original size
 ```
 
 ### Creating from a file mask
 
-```
+```ruby
 thumb = Thumbnailer::Files.new('*.png')
 thumb.create # creates thumb_<file>.png files
 ```
 
 ## Creating from a PDF file
 
-```
+```ruby
 thumb = Thumbnailer::PDF.new('test.pdf')
 thumb.create # creates thumb_<file>_<page>.png files for all pages
 ```
@@ -45,7 +45,7 @@ thumb.create # creates thumb_<file>_<page>.png files for all pages
 
 We can send some options to customize the output
 
-```
+```ruby
 thumb = Thumbnailer::File.new('ruby-logo.png', prefix: 'custom_thumb_')
 thumb.create # creates custom_thumb_ruby-logo.png with 1/10 of the original size
 
