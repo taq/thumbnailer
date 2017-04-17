@@ -6,22 +6,28 @@ module Thumbnailer
     attr_accessor :object
 
     public
-    attr_reader :width, :height, :image_width, :image_height, :prefix, :dir
+    attr_reader :width, :height, :image_width, :image_height, :prefix, :dir, :sequence
 
     def initialize(options = {})
       @options      = options
-      @object       = nil
-      @ratio        = options[:ratio] || 10
+      @object       = options[:object]
+      @ratio        = options[:ratio] || 2
       @width        = options[:width]
       @height       = options[:height]
       @image_width  = nil
       @image_height = nil
       @prefix       = options[:prefix] || 'thumb_'
       @dir          = options[:dir]
+      @sequence     = nil
+
+      extract_image_size if @object
     end
 
     def output
-      "#{@dir}/#{@prefix}#{@file}"
+      path = "#{@dir}/#{@prefix}#{@file}"
+      path = path.gsub(/\.(\w+)$/, ".#{@options[:format]}") if @options[:format].to_s.size > 0
+      path = insert_page(path)
+      path
     end
 
     def create
@@ -34,6 +40,12 @@ module Thumbnailer
     end
 
     private
+
+    def insert_page(path)
+      return path if @options[:sequence].to_i <= 0
+      matcher = path.match(/(?<prefix>.*)(\.)(?<ext>\w+)$/)
+      "#{matcher[:prefix]}_#{@options[:sequence]}.#{matcher[:ext]}"
+    end
 
     def resize
       return if @object.nil?
