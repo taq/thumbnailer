@@ -9,6 +9,7 @@ module Thumbnailer
     attr_reader :width, :height, :image_width, :image_height, :prefix, :dir
 
     def initialize(options = {})
+      @options      = options
       @object       = nil
       @ratio        = options[:ratio] || 10
       @width        = options[:width]
@@ -21,6 +22,10 @@ module Thumbnailer
 
     def output
       "#{@dir}/#{@prefix}#{@file}"
+    end
+
+    def create
+      write
     end
 
     def write

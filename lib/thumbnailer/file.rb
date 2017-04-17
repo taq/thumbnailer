@@ -4,7 +4,6 @@ module Thumbnailer
 
     def initialize(path, options = {})
       super(options)
-      @options = options
       @path    = path
       @file    = @options[:file] || ::File.basename(@path)
       @dir     = @options[:dir]  || ::File.dirname(@path)

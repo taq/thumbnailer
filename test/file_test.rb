@@ -1,7 +1,8 @@
 require 'test_helper'
 
-describe File do
+describe ::Thumbnailer::File do
   before do
+    clear_thumbs
     @file = ::Thumbnailer::File.new("#{Dir.pwd}/test/images/ruby-logo.png")
   end
 
@@ -37,7 +38,7 @@ describe File do
 
   context 'create' do
     it 'must create thumbnail' do
-      @file.write
+      @file.create
       expect(File.exist?(@file.output))
       image = MiniMagick::Image.open(@file.output)
       expect(image[:width]).must_equal 51
@@ -52,7 +53,7 @@ describe File do
     it 'must create with custom dir' do
       @file = ::Thumbnailer::File.new("#{Dir.pwd}/test/images/ruby-logo.png", dir: '/tmp')
       expect(@file.output).must_equal '/tmp/thumb_ruby-logo.png'
-      @file.write
+      @file.create
       expect(File.exist?(@file.output))
     end
   end
