@@ -20,7 +20,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Creating from a file
+
+The default way is:
+
+```
+thumb = Thumbnailer::File.new('ruby-logo.png')
+thumb.write # creates thumb_ruby-logo.png with 1/10 of the original size
+```
+
+#### Options
+
+We can send some options to customize the output
+
+```
+thumb = Thumbnailer::File.new('ruby-logo.png', prefix: 'custom_thumb_')
+thumb.write # creates custom_thumb_ruby-logo.png with 1/10 of the original size
+
+thumb = Thumbnailer::File.new('ruby-logo.png', ratio: 5)
+thumb.write # creates thumb_ruby-logo.png with 1/5 of the original size
+
+thumb = Thumbnailer::File.new('ruby-logo.png', dir: '/tmp')
+thumb.write # creates thumb_ruby-logo.png on /tmp
+
+thumb = Thumbnailer::File.new('ruby-logo.png', width: 35, height: 35)
+thumb.write # creates thumb_ruby-logo.png with 35 x 35 size
+```
+
+## Creating from a file list
+
+## Creating from a PDF file
 
 ## Development
 
