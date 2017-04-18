@@ -13,6 +13,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://github.com/taq/thumbnailer"
   spec.licenses      = [ 'GPLV2' ]
 
+  spec.signing_key   = '/home/taq/.gemcert/gem-private_key.pem'
+  spec.cert_chain    = ['gem-public_cert.pem']
+
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
