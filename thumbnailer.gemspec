@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A simple way to create thumbnails.}
   spec.homepage      = "http://github.com/taq/thumbnailer"
-  spec.licenses      = [ 'GPLV2' ]
+  spec.licenses      = [ 'GPL-2.0' ]
 
   spec.signing_key   = '/home/taq/.gemcert/gem-private_key.pem'
   spec.cert_chain    = ['gem-public_cert.pem']
