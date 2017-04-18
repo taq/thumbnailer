@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'thumbnailer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "thumbnailer"
+  spec.name          = "thumbnailer-taq"
   spec.version       = Thumbnailer::VERSION
   spec.authors       = ["Eustáquio Rangel"]
   spec.email         = ["taq@eustaquiorangel.com"]
