@@ -9,8 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Eustáquio Rangel"]
   spec.email         = ["taq@eustaquiorangel.com"]
 
-  spec.summary       = %q{TODO: A simple way to create thumbnails.}
+  spec.summary       = %q{A simple way to create thumbnails.}
   spec.homepage      = "http://github.com/taq/thumbnailer"
+  spec.licenses      = [ 'GPLV2' ]
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.

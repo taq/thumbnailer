@@ -17,7 +17,7 @@ module Thumbnailer
 
     def extract_image(file)
       raise Errno::ENOENT unless ::File.exist?(file)
-      @object = MiniMagick::Image.open(file)
+      @object = ::MiniMagick::Image.open(file)
       extract_image_size
       @object
     end

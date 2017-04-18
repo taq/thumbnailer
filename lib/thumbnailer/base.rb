@@ -20,7 +20,7 @@ module Thumbnailer
       @dir          = options[:dir]
       @sequence     = nil
 
-      extract_image_size if @object
+      extract_image_size
     end
 
     def output
@@ -54,6 +54,7 @@ module Thumbnailer
     end
 
     def extract_image_size
+      return if !@object
       @image_width, @image_height = @object[:width], @object[:height]
       avail_thumb_size
     end

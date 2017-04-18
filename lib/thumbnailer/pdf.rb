@@ -47,7 +47,7 @@ module Thumbnailer
     end
 
     def extract_collection
-      MiniMagick::Image.open(@path).pages
+      ::MiniMagick::Image.open(@path).pages
     end
   end
 end
